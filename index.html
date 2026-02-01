@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playwrite+US+Trad+Guides&family=Roboto:ital,wght@0,100..900;1,100..900&family=Share+Tech&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+
+
+<body>
+    <!-- NavBar start-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <p><i class="fa-brands fa-instagram"></i>Instagram</p>
+            </a>
+            <!-- Button New post -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <button type="button" class="btn bg-success ms-auto me-4 text-light" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">Create a new post</button>
+                    </li>
+
+
+
+                    <!-- Gear dropdown -->
+                    <li class="nav-item dropdown w-auto">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary dropdown-toggle w-auto align-self-start"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-gear"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="#">Accesibility</a></li>
+                                <li><a class="dropdown-item" href="#">Privacy and Data</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item text-danger" href="#">Log out</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!--Gear dropdown end -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar end -->
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Nav & tabs  changer-->
+
+
+    <nav>
+        <div class="nav nav-tabs justify-content-center text-center" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+                type="button" role="tab" aria-controls="nav-home" aria-selected="true"> <i
+                    class=" fa-solid fa-table-cells"></i></button>
+
+
+            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+                type="button" role="tab" aria-controls="nav-profile" aria-selected="false"><i
+                    class="fa-solid fa-square"></i></button>
+        </div>
+    </nav>
+
+    <!-- Fa-table content -->
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"
+            tabindex="0">
+
+            <!-- First view -->
+            <div class="container ">
+                <div class="row g-2">
+                     
+                    <div class="col-sm-12 col-md-6 col-lg-4 mb-2">
+                        <div class="ratio ratio-1x1">
+                            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhITEhMSFRUVGBcVFRcVFRcXFRUVFRUWFhUVFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGBAQFy0dHR0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rKy0tLTctNy0tKy0tN//AABEIALcBEwMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAEAAIDBQYHAQj/xAA5EAABAwMCBAQDBgcAAgMAAAABAAIRAwQhEjEFQVFhBiJxkROBoQcUMrHB0SNCUmLh8PEkklNygv/EABkBAAMBAQEAAAAAAAAAAAAAAAECAwAEBf/EACMRAAICAwEBAAICAwAAAAAAAAABAhESITEDQRNhIlEUMnH/2gAMAwEAAhEDEQA/AOLEKQMwhdeUUx8pJWFIFqHKdScQvalNJqPwBLrKc5yY1T06KV6MgcVCtLwNwIEqhNHKkpXLmbKXrDONIeLp7NFxCk1xgLReHPs2Ndmuq/4ZdlgjMQcn6Ki8B0TcXLS/LWy4zzgLpNTi7m1QQYaDEdkvnFwVMOOTtHOvGXhepw9zQ/zNcJDhsTzHqs5b1cr6E4taUr63dQqR5h5XRJY4jDguE8U4FUt6j6b8FphO0hXGhxu8JuCZlCMoQUaAAFNqhaGVbTVyQL7XSrRtaMFQXPPKEZNOjSWirq1tKiZcyYXlemV7QoEFdNKhfgWxkhQyJViy3JGEHWty05U1JcMovo4gAIbVJhSukhKnTgpojHoo4UlMynuqQFZeFOA1byroptnmTyA6lDbMUd1andRU3Fq78/7PrJlMB8l0QXTGfRc58V+E/utSB5mHLT2nZNLS2ajJUnFxU1S1jKtfuIAkIO9kBc2W9AxZVto5wpq1IwmCrCnZVBwqbDQAxplFW9TTlTVGBAXFSNk3+xia+q6kE2llNFVOFVUSpUayaUkwOSWFAi1PpPhSVym02hP1DIbUqJkqaq1RBqyMTW5kq2ZEKspNgI+lVEQo+tvgYtA9w/KgLpKkud0+jQRWkZs6R9m9qG061SOQHvzBS41cPGQMg/IonwET90rN7g90bc0A/kpvp0eKtFt4Xu3VKQBwR9ei88dcA+80DUYP4zBLgP5mgfmMKs8OXPw3mmTBG2cQeRWyZX0w8DY+aMgtKotoE4/D5zr3Ja4tPJT2t1O6032neHBRrmrTH8OoNYjbPL3/ADWUo0MYIPv+yEoo5y1srf4h7Ii74bpEhB8HrOa/TjO3mEnsBO60V4x7qQcxjjnScHyu/ln1XJP8inrhaKhjvplm0Z5KStZxBBGRMbHGDvvkFWFXhlafLTdmCcGBMz2jyk+iZf2pDKB60tUcwDWrAGDsDE/NdKkSaB7MyDkSMxImOZjdeXDmnbKVjZPNVpDSYBe7ETDtOOQJJaM9VJxvhr7aq9rxEuJp9HtJkFvYAie+FOXmryQU9UQMtlBVZyR9CsDiUqlo6o6GAknkFoSdmaK6y4e+s9rGAlziAI7mF3nwzwVnD6ED8bgDUPfoOwQ3gzwmyypipUAdXIxidAOw9dlN4jvvh03OeYweYlXWkNGJnuLcfNWqWgnS0478pTPFFY1LVpdu1wz22Wa4DqrVX1OUwN1qOPW//hPzkR/vZL10U9FUTBVLnEIG6qAqNz0O+oMlRUNkcge5CGbUgp9xUQziumK0KwwXMpr6UptvRlFU3RuEr1wyorm2xKjc0tOVfsjdVfEY1YRh6NumF1RCCvF60pJxCCpM5XgKnrNkyoCEyY1EzMhMcVJTGE34SxiRj+ieGOTrGl5p5BWr6IIkKU5pOgIrKbNRCs2UoGyFt6BnZGVa0CCpzlukE2n2d3Ei4p4/DI64V3VrANBOxx8wcrBeBuKfDumy4hpMHOCD1wukXlsGEg5EyPQpmtI6PB/DMV36ajXnIJ65jsVsOE1hp8tYZEQQGkHoSMFZLi9LSJAwTmeXorDw3cmQHRqjB0mY7OTRK+iNVfcNbdWr6b5LqUke3L5SuGVBVbULG4EwAciORIOwP6r6A4KxzKriWnS4DJxJ54Q7vC1t8Y1NImQ7SRAmTnumtVs5pR3owdj4LFwynUc3Q8wSQ6WmeQO46j5joF0Ph3AWU6YBAkwT0LwDMj5ko6m4MaW/DAbt5Ry6gL0scSA12oSCC3cdFCx1BIp3cJp+fDQCMjt+F0HfYlVfEfCrK1XWcANDR28xOeokn3WtFi78JzOc55aXCfb2XjKJAOqDEz6E4+kJaY7pme8PeGG0Wua+HN/lkSRDtemek02fMKu8S+GRc1ab8fwi2B/ZqBcPkAf/AGK2lu0lsHfyx3yZn5g+69dTHxI6DPqd/wBEybFcUfO1xwqrSr/C0u8oBd/aNml3QnA9SuseBPD7aFJtzWHmc3yg9ScH1WiuPDdOu5rngBgyWgAanDGp55wDA6SpuMtc7TTpNEDeBs0D6J7XfoijvZV3/E4B1PDXHOen9uQei5t4t4maz4mcx09fKtrx22qUmOdUBE7CDI//ACNh6wuf0T8WqJiZ5gQOW4RZeCTZo+A0QymCI291J4vuf/EaJjUe6IoWuGgbH/fksv45u2GoGN2YI9DzSx1bE93qjL1Niq2o8hFV6iBrFNA5eEFVyZK9cU1XCF29xCVauhQvUuKAG065OEyqyU2k1EtbKXSMwUNSU5opLZACq1jAVfVtDK0/FnARCBa9qjGTSTK6uimosIwUSKKlqEEqyt6IMbKsm62IytbT0qWjcTgq2Nq0qpvbTSSQlxyRqLu3Y3QIiVV8WoKPh1xkCVc1qYcMrmxcJDKOip4HRcKgIHPuce67G9+ug1wA1NGfboVyzhzGh2du0z+YXRvDTw4ANaBO4mffoupPLRoPF2OFjq/FGg+v5c1d8H4XRpjyvdvILmgx/wDXEj1iUTacH3ESDnmd/RXVGza1ukNkDlJI+qG6OiUkwSnTEyDqPU908syCR7E/vlE/Dz0T6tuYyJG4jBCnVgsVOCNiOsZ/6oxalp1YnkRzHQ9+6Kot5j5qfkmURcgaTrAI8pyD0PRSXFPfvHt/v5pNkb7ck9lQGR/SY/VEwPbUhB9vmo30gHg9UaIEqOtRyHdktGsVj5yeQGPT/f17KavUazDGz6ZJP7odktkA7mT+qbVqHB67eiKAzC+P72W6DTDnbhnxCGj+4tbl7vVZzw5bBsy3zcwWxC7CazXYGkR2AVLxXhYdLgZ7wwY9Yn6o18HhNIx15dCjRdVLcmQ0Zlch4pel73HqZW2+0HiLhFMFwA6R9eS5u8knJVFHRD0lk7J2OlOcAQmspyML19MgIEwCqMpoCnqMURVExhrQpQxMYjKFGUG6Ae0qRXtOppKsabBCBuqXmwpZWL9HawkmCg5erD2HX9bUMKkql080c5/JQlklNCOJiOmxyubCodlBb0gVa8PtAh6MNDRXLTshrp2pW11SgKqLQCcpU3WhqAGHSdkd9+MQmtt9WwTn2sQkvezDratnJgey6X4Ju6Jc1jXD8xP9xXN6dAHPLuY9gF0L7LmN1Pc+ABAaPNoHqXbn3TQlb4ZpI6lRLdOD8xgFNpvcDHLuVWXXEWCNOeQzA6T6IqhUMAkKtGss2/IpAnmIQjbguMBwHZok/wCFIa+nn77oUax1Wm7+TccjhQ13OI1MeIBAcDzMxA7omo6Rvjc55f6ECGlzWCDJJPsSJj0z7JWhkyS1l5gw5oMB051dfoVMa2k6YM8oBOB175SY0UwSM42H9RjPsFEy5cJLxpHL956oUGwllSeUeqe18kZ2QH3kPy0Qf6uvtuhzegNyYJ35HfaOSxiyrATKqL67I2yThNr8UYNyB0E59kGahfkc01CFrbV3FvlGrs3JXl6SKbiAWOgxifoDn2VM65NM6Xte3GMjPoQfT3QvEvFDLdhDnscWiQysdJiMaXDdGgM5R4rrONR4cBvkfqAVmBQVx4k42y5e6o2mym6chpJnuSTn6KpZVVGIF2lMIq4oCCg6NaFY03Atyuackmb8bspalJD1bdWF9giEyhDjCrGS6FxaAadsUfQpIoUAMqRkQtJpisjoNlFGyAyoaUbok3YiFOf6AlYG5qS9cEkA4CNpOYUVa02RRuNIhAVruShFzTKNokpjSUUL2BhVbrrkpKZJVWm+gRaC7LwhagUlsICju6kclrpUgk1GuAEy6vFV163JNotkoxX1gbNDYgEdVccPpAOkO3Ibh2k/3GTsI+nqqGwGkbok3ZaPL337txhS+6MjqvCrZ1QU3Nb5YBBmBiQAJM4gb9Va12vmPiSByxHosd4P4iTTL7mo4Ma1oaxpzUxtj8LR7rF+NfFdc1w2n/AY2HMFPBIyPlsV0xVo1ncXONJgMDuBg/5QH3is/wAwB05gHG3yXJ/CvjuvUrU6Vw/UCRBPPsepXcbO9FZsvaWgAAQNhvn/AHkptOyi4Di7LgWD8RDD+eoeyvLCjqe0n+Rv1J/wqVtBvxBUbnztEDlvv3gq9san8R/T/f3RW2K9B/wRMkZQl/aah5XFp5cx7IxjpJXlfZNihcmc74tcXLdQe1sDAcDDfZBNAI/i1Bn8WYBIGAStu4NNRzXAEHzCRPY/klX4NScAXNZHcCZJ5KeJTIwxDSYpCD1OR6yVa8Eq9SDG4Mzjp1U/iHilvb0yQGw2c7nG3sFzGr9rumr/AA7caZy5zoMdQACnirFkdP45cMcweR2oAmI3aMnTPPnCxHFq1C4oPaS2oA0uaY/iUyDHlB37idpWmHiQVrT4+ltSnHmNM+akSI8wIOO/uuT8Wq0yf4DnjcxjWSTOG4B5nBO6MlQlmVubfS4gJFsBEOp6j+ITzkQV5VwMoWmgoE1kFH21cwq57wjLdyD84tbDkxl1qcZTaDy0oosUVQgJVjxAd/Qj7yIhTUxKqH1IRdvdkBNLzEqy1oUxCFuaJnmibGtqIAVpdUcZXPKeGmMomekpJ7gF6nBZZ29i1zZKquI8Pg4V1b3ga2Cg61YPKjCU1KzolGGP7KM2jp2RrKRV7RtWkBR17QKv+RbqhHCkV9IAlTVbYESpKdrBVrQtJbKWftigKLZkbq1Er22o52VlxW2LXSNkE2RyVYTUok5JphbdlLRoTHcoKlX3Vhwy5/iUxBPmG0de6k+0OkdUf4bY21bpDW+UHbJPc7rnHi/wtWeG1KbA9rRpJBggzMwdxkhdtNP4lICIwN/T6qmt7ANLm1AHNB1RyPYrog90FrRzv7OPs81k17tvkyKbP6j/AFnsOXuu28DpGm1tMtBZENduY6OlZpnFQaoZy2+fQdgFrLC4B2+m0qrFCq9uNROI39v+oe1MkaRuvbivg5yq6txqlbiC4asTnZKkZmlpsgJPbIIWe4Z4oZUdpxO2OZT+IeJmU3aRuN0QUNumFlUaueAeRBxujry3a6JBgRtkdZg4Qla9ZXp6gR1icgjKlp3flBnfr80WjJnO/tJ4FcXNJzaNXS0Z0BmahAJDS6fKFwB1Mg6SCCDBB3BmIIX1fxO6a3+YHmffksdxTw1avebkUqbzu9pHP+tvfmsjWc14dxG44dUDaREGmA4ObLKhIGsHqDkfNVdQBxcYgEkx0nkFp/FlBpa1zDgGI6dlk/iwVD1t6ATWz85z67+6nvLcEYCD7qQX2IKn+NtWjXsqatAg5UlJ0EI6s4FSW1sCuhc2Zuh1HTGUJWoScKwuKOlshC21TqoRhTtDZWVtahBXoR3EnDEKtJV9sBd8AqgT1VrxS5LmgBZOnULdlbcOutX4t1y+/i8sh4S1R58EpI01G9kkmcg0gGtXcghclE1Hgom3sDvGF0Wo9FWyS0rv04lSCu4nMqcAAeikY9kqEnvgxF8aAirfioA0lD3bm8kHqCMopx2BNpljXfrIQV3ShS2jwSjG0muklJngbFyZm3MIyjeB03vq0w3fUPzRN9RbBKI8FUNd3RbBPmnB6ZzKt5zy3RnGjvlm4NYGmcAAk9UJdW4eYmQprWl58Eho3A2JPWcI+54cND3U8OwTHQbgIytSHXANnBKFFuptISefT35ptvcuBw3b65U1reB7SJIj39lBbEahMxPIwrpkz2qDXDmh2guOkEbtcRIjqcT/ANXM/FvhXi7HFzX0qrf7WlpPqDI+q6fXthTrtgkNcC4ZzIwd+xVo+8DGkn89/lKZbQLpnCfD/GKjD5w5j2mHNOId+x3UfiLxG/VLG66rzDQAZJ5nG4Wj+1KjTfoqU/JUB0u0gAubvBHM9OkpfZLb0dbqr/PVJhhfEhs7Acu8e6OI2RVeGbDjbvMKDAD/API7Ry5gSV0axuHUabadV0vaAHRtPMjtMrVvuPLuQD0j9lkuIW8moY1EuHqPKN0XwS7ZRVuD3F0Cabi2HEgnbeOSoqF9VtyaVYk+bRPYdPRdItq3wqOnaO36LO3PAPvTw8NAaPMTtOeiQJgfFFvp5yHeaRie6xFVsnC6P9olu2jpa0yI23APrtHb/C5lTedWx3U3WwBTqJI5qE2J3ytBY2stGFPcW7UkfVcRqozDbZ0oig5zZVg8CUPXcOSdSTM0LWXiEPWt3N9FLbVgMFT3Vw3TEqSbUqQ6iqsrRRJUdS2KsKDxKY+oJMpk3kBtUAVaDgJUeojZWdeo3SAqetUyqr+WhaJPiOSXjDhJPijBVOgSZWntBLN9lVUHjSE195mAVxy/m6KLSsZfPOoiU2gSJyvTTn1T20DKo3FKhdkrSSEHc1iPVXdKy8sqh4kzzJVKMnVhqtkdG4dMo4cRcBsp+H2I0yVBe0IKP8JaFtohdfF263H2WU2OuCYl4aYOIb1Pque1GwcLp/2R8LLjUqwcCBMgGeaeMK4a7OiOqvBwSGDcjt/pWm4dctc0EfVZeu5zgQRscQdyM5+ibwHickseWiCYjmBzj6IT6Olos+NWOl3xGg6ecdEPa05MghwOfmtHbV2vaW4jZUV3TbbnUPwnHQA908RWQ8SudektcNVMwQeh3/IKs43xTQ3PTtnv+XRZzxNdvpVHVKcnYuGPlsVnq/iujXpltQkOGeeOwBPp/lWTFAfE3FnVXRJk7Z5nZQ+F+JGkWiY0n6znEoC6qUKZL31Q/TJa0ZLjmAfnCbb8YtX+Z00nk5aBiYgweQ/wiGztvCuMipS1STjJHP5jvKhFyS2oc/ikRvER0lcyf40pMYKdJxI+c9lpfBPEKlzUgh2kD9lmKas3LQ3VUg9B1P8ATHJaHw+7XTLzhp2b06x2VCODaq4LzMbN5FaLiF2KVJ0U9IAw3b2UpDI439oVx8au5jT5ATAiCIJEE84IIWbo8GAgqx4i8Oqvdy1Hmoa96AIBXne3pJyqI0UmT0WhoVPeX2Sp31p5lVdzSlU8oY9NLpHUrSmVKwhROpFNZQcV0qlGzfoic9JrpKsxwzEoetZkIefrFs0otDKdQBMr+aUE+ZRNKYT0rsmweq7CgFOU+4JnZFWLZgQndIyZGy2MJK7+Ckl/IggLDJhT/dOarrZ5DpWhaJbhK1TGjtAtvUAMFEfeGhU/EJBwgmV3FCXipOxuG0pcQZEKovi1xMKqZUf3Tnl8Sp/46i9M1ssaN+GtIlA3N2XHshWNPOU9zVaPnGJNuyOq88l237I6jvubwdtWDj59yuJgCQvoH7Oiw2DGsBEfixBnqm1WgotaDyarG/ymT6D9yYVR4goGzca1MBw5tE9Vey2m7U4kY3PRH06LK9PzAu1Zgjkdp7qU0Uiyi8P8cLmg1vJzA2wYiE/iV/8AELqbtjlvc/oVTeKuGVKUuAJaNo5D1VRwXjYbV0vyCdjyCaMkCURnHHOoVmNqZGnIyfKDE9zBQfE/BVrdD4tGo1uMgRvv6IvxrT1PLgctbH1WKocRfScNJLYzHQ745RKdyxFSstKf2dNY6ahcQDs0nPTJHr7JXv2fsLnBpdvA78gD+hTrbxZV06fKczJExHKOSR8WvmdYzOAMgzOPy+aP5ECmC2ngZ1I6qukDoTBPoth4GumMruAMBjCc9t1lPv760uc4nkJ/RBV71zC4NP4gQfQ4I9kcvoKOrWnilgc6s6NMkAbT6HqqzxR4xFdgbSLokzOOX+Vg6Ny51PSNpGDzU9jZHc46fJTk9jVSK27rFpIKhpumEZxGhB2Q1DC4pd0FMdVpoZwVgao5pjWgp3KVGSAqNIHdSFgajGUcbJGhKzk6Ckgb75yKir1gQdlFxGlGyDZJTecPqFm7Bqrcp9OoIheXAhQ29uXLojzZMiu3ZUlhWgpl5akFRUqZCdu0E0P31qSo/hnuklwRrFTfBV3Y3EiFWVLXmrDh1IBFjx6RcRbKCs2iYVxeURBVU2mDJHJaLY0tFo2mAENXrNAhDmsYjKGq0yTzWr+wXoLa8FMqvTW0HAKMUXErOibQRaUpcF9AeDCPudNrIEDpGVxXgvD3FzcDcfNd34HTFOlSAbGBP6mFNvQ0UC8aY7Q4HJ37DoqzwzxtzS8VDMuHPrgD0EfRaTjVv8Q6RkOG/ILLcS4GWBnw2/hIxzJ2z2Qv4Uo3dvd0rlmkw5p/JYTxf4N+GPj241aXatMZgGfmpLZzqNBzmyHtEDudyP8AeitOHeIHU6WmuJhocDuXahkHvP5pWgpnIeI+KHHFZh1AnI5yScqqqcbok5a76K48YUWGs8gAaiTA2GB+/wBFlPukk9kdPpv+BTuMNnDI/NSUq1MmZA7Ks+5ZRlG0AiStjH4BtluL9rds9I2UdMF7s/8AUPSDArPh1UCTG2yp8FNx4P4EzSK1bDJgDqeSD449rqzywNa2YEY2xt8lG3izzSa3+QSSN9p6KjuOKyTBBB3kc+vqllwVsbxJoOxVVUpnkiXVZKloM1FcmNMeKsAbTcpKNNytxbABeMoBGUh1EVBhITTSKOpAAJr3hIzYlTW4eXFOHDIGysfvASNYFMpNIOKKC64d2UFOgGDZXdxVCAqNlPGTYskimvnKua/Kubyh0QFK3yrxeiLWwqnpgJLz4RSWxf8AZgr4MhNpNISSSKTHoir1C7CAEykkrRY0+BtChKNp2oC8SSzkyaJn242T7axErxJTlJ0OkabwxaH4rRAOcjkur0xpDTiMJJLXoMVsmJlpERnl+6jAHIbYElJJI2UoBu7L4pgYA3/4q7iPDpaWjORE8oCSSaLYGjB+L+FaWh3MHPXYH91hKzC0nkvEk/0A11WBjfHumAk57JJJkhGEW7Oat7Qcl4kigFzqOjSOQkfL8kIy0yvUlKbdhSQUyxU1G1hJJc66Vih1xSwoKYSSRmhmPLZQ1Zi9SWoANoTKjowkkgwMGfJ3TgxJJPFCET6QTRRCSSIWO+EEkkk1i0f/2Q=="
+                                class="img-fluid object-fit-cover" alt="Image 1">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-4 mb-2">
+                        <div class="ratio ratio-1x1">
+                            <img src="data:image/jpeg;base64,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"
+                                class="img-fluid object-fit-cover" alt="Image 2">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-4 mb-2">
+                        <div class="ratio ratio-1x1">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzP8ADYcMMMauxAsxBMwYdYFJod3p5oucIOw&s"
+                                class="img-fluid object-fit-cover" alt="Image 3">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-4 mb-2">
+                        <div class="ratio ratio-1x1">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2X0FBnUohrTFZY9WruQHV9wcLrEfZQ0UVoQ&s"
+                                class="img-fluid object-fit-cover" alt="Image 4">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-4 mb-2">
+                        <div class="ratio ratio-1x1">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnhH3Q0byNGIoQpjh4kswoyBO71Gi9Y0aZpA&s"
+                                class="img-fluid object-fit-cover" alt="Image 5">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-4 mb-2">
+                        <div class="ratio ratio-1x1">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiRezXS1WmN23JhR2VYpearkMdbL-CRNVDPw&s"
+                                class="img-fluid object-fit-cover" alt="Image 6">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-4 mb-2">
+                        <div class="ratio ratio-1x1">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9fb0GooNIJKTAyygoBac7qsejiIzRp2PqdA&s"
+                                class="img-fluid object-fit-cover" alt="Image 7">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-4 mb-2">
+                        <div class="ratio ratio-1x1">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHPj5dbh8sgws4tNoK52V48m3Y7HOw9OHkdQ&s"
+                                class="img-fluid object-fit-cover" alt="Image 8">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-4 mb-2">
+                        <div class="ratio ratio-1x1">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaxcDflzSrp6pKYXlU-4vKyAcPoLuZnPBthQ&s"
+                                class="img-fluid object-fit-cover" alt="Image 9">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- Cards posts -->
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+            <!-- Second view-->
+            <div class="card shadow-sm mx-auto mt-2" style="max-width: 500px;">
+
+                <!-- Header 1-->
+                <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center gap-2">
+                        <img src="https://i.pravatar.cc/40?img1" class="rounded-circle" alt="avatar" width="40" height="40">
+                        <strong><span class="username1">UserName</span>
+                        </strong>
+                    </div>
+
+                    <!-- Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-sm" data-bs-toggle="dropdown">
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Report</a></li>
+                            <li><a class="dropdown-item text-danger" href="#">Unfollow</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Image -->
+                <img src="https://picsum.photos/id/1/600/600" class="card-img-top" alt="image1">
+
+                <!-- Body -->
+                <div class="card-body">
+
+                    <!-- Actions -->
+                    <div class="d-flex justify-content-between mb-2">
+                        <div>
+                            <i class="fa-regular fa-heart fs-5 me-3"></i>
+                            <i class="fa-regular fa-comment fs-5"></i>
+                        </div>
+                        <i class="fa-regular fa-bookmark fs-5"></i>
+                    </div>
+
+                    <!-- Likes -->
+                    <p class="mb-1"><strong class="likes1">124 likes</strong></p>
+
+                    <!-- Caption -->
+                    <p class="mb-0">
+                        <strong><span class="username1">UserName</span>
+                        </strong>
+                        This is an Instagram-like caption using Bootstrap 5.
+                    </p>
+                </div>
+
+                <!-- Footer -->
+                <div class="card-footer bg-white border-0">
+                    <small class="text-muted"><span class="hours1">2</span> hours ago</small>
+                </div>
+
+            </div>
+
+            <div class="card shadow-sm mx-auto mt-2" style="max-width: 500px;">
+
+                <!-- Header 2-->
+                <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center gap-2">
+                        <img src="https://i.pravatar.cc/40?img2" class="rounded-circle" alt="avatar" width="40" height="40">
+                        <strong><span class="username2">UserName</span>
+                        </strong>
+                    </div>
+
+                    <!-- Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-sm" data-bs-toggle="dropdown">
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Report</a></li>
+                            <li><a class="dropdown-item text-danger" href="#">Unfollow</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Image -->
+                <img src="https://picsum.photos/id/234/600/600" class="card-img-top" alt="image2">
+
+                <!-- Body -->
+                <div class="card-body">
+
+                    <!-- Actions -->
+                    <div class="d-flex justify-content-between mb-2">
+                        <div>
+                            <i class="fa-regular fa-heart fs-5 me-3"></i>
+                            <i class="fa-regular fa-comment fs-5"></i>
+                        </div>
+                        <i class="fa-regular fa-bookmark fs-5"></i>
+                    </div>
+
+                    <!-- Likes -->
+                    <p class="mb-1"><strong class="likes2">124 likes</strong></p>
+
+                    <!-- Caption -->
+                    <p class="mb-0">
+                        <strong><span class="username2">UserName</span>
+                        </strong>
+                        This is an Instagram-like caption using Bootstrap 5.
+                    </p>
+                </div>
+
+                <!-- Footer -->
+                <div class="card-footer bg-white border-0">
+                    <small class="text-muted"><span class="hours2">2</span> hours ago</small>
+                </div>
+
+            </div>
+
+                        <div class="card shadow-sm mx-auto mt-2" style="max-width: 500px;">
+
+                <!-- Header 3-->
+                <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center gap-2">
+                        <img src="https://i.pravatar.cc/40?img3" class="rounded-circle" alt="avatar" width="40" height="40">
+                        <strong><span class="username3">UserName</span>
+                        </strong>
+                    </div>
+
+                    <!-- Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-sm" data-bs-toggle="dropdown">
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Report</a></li>
+                            <li><a class="dropdown-item text-danger" href="#">Unfollow</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Image -->
+                <img src="https://picsum.photos/id/13/600/600" class="card-img-top" alt="image3">
+
+                <!-- Body -->
+                <div class="card-body">
+
+                    <!-- Actions -->
+                    <div class="d-flex justify-content-between mb-2">
+                        <div>
+                            <i class="fa-regular fa-heart fs-5 me-3"></i>
+                            <i class="fa-regular fa-comment fs-5"></i>
+                        </div>
+                        <i class="fa-regular fa-bookmark fs-5"></i>
+                    </div>
+
+                    <!-- Likes -->
+                    <p class="mb-1"><strong class="likes3">124 likes</strong></p>
+
+                    <!-- Caption -->
+                    <p class="mb-0">
+                        <strong><span class="username3">UserName</span>
+                        </strong>
+                        This is an Instagram-like caption using Bootstrap 5.
+                    </p>
+                </div>
+
+                <!-- Footer -->
+                <div class="card-footer bg-white border-0">
+                    <small class="text-muted"><span class="hours3">2</span> hours ago</small>
+                </div>
+
+            </div>
+
+                        <div class="card shadow-sm mx-auto mt-2" style="max-width: 500px;">
+
+                <!-- Header 4-->
+                <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center gap-2">
+                        <img src="https://i.pravatar.cc/40?img4" class="rounded-circle" alt="avatar" width="40" height="40">
+                        <strong><span class="username4">UserName</span>
+                        </strong>
+                    </div>
+
+                    <!-- Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-sm" data-bs-toggle="dropdown">
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Report</a></li>
+                            <li><a class="dropdown-item text-danger" href="#">Unfollow</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Image -->
+                <img src="https://picsum.photos/id/491/600/600" class="card-img-top" alt="image4">
+
+                <!-- Body -->
+                <div class="card-body">
+
+                    <!-- Actions -->
+                    <div class="d-flex justify-content-between mb-2">
+                        <div>
+                            <i class="fa-regular fa-heart fs-5 me-3"></i>
+                            <i class="fa-regular fa-comment fs-5"></i>
+                        </div>
+                        <i class="fa-regular fa-bookmark fs-5"></i>
+                    </div>
+
+                    <!-- Likes -->
+                    <p class="mb-1"><strong class="likes4">124 likes</strong></p>
+
+                    <!-- Caption -->
+                    <p class="mb-0">
+                        <strong><span class="username4">UserName</span>
+                        </strong>
+                        This is an Instagram-like caption using Bootstrap 5.
+                    </p>
+                </div>
+
+                <!-- Footer -->
+                <div class="card-footer bg-white border-0">
+                    <small class="text-muted"><span class="hours4">2</span> hours ago</small>
+                </div>
+
+            </div>
+
+                        <div class="card shadow-sm mx-auto mt-2" style="max-width: 500px;">
+
+                <!-- Header 5-->
+                <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center gap-2">
+                        <img src="https://i.pravatar.cc/40?img5" class="rounded-circle" alt="avatar" width="40" height="40">
+                        <strong><span class="username5">UserName</span>
+                        </strong>
+                    </div>
+
+                    <!-- Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-sm" data-bs-toggle="dropdown">
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Report</a></li>
+                            <li><a class="dropdown-item text-danger" href="#">Unfollow</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Image -->
+                <img src="https://picsum.photos/id/545/600/600" class="card-img-top" alt="image5">
+
+                <!-- Body -->
+                <div class="card-body">
+
+                    <!-- Actions -->
+                    <div class="d-flex justify-content-between mb-2">
+                        <div>
+                            <i class="fa-regular fa-heart fs-5 me-3"></i>
+                            <i class="fa-regular fa-comment fs-5"></i>
+                        </div>
+                        <i class="fa-regular fa-bookmark fs-5"></i>
+                    </div>
+
+                    <!-- Likes -->
+                    <p class="mb-1"><strong class="likes5">124 likes</strong></p>
+
+                    <!-- Caption -->
+                    <p class="mb-0">
+                        <strong><span class="username5">UserName</span>
+                        </strong>
+                        This is an Instagram-like caption using Bootstrap 5.
+                    </p>
+                </div>
+
+                <!-- Footer -->
+                <div class="card-footer bg-white border-0">
+                    <small class="text-muted"><span class="hours5"> 2</span> hours ago</small>
+                </div>
+
+            </div>
+
+                        <div class="card shadow-sm mx-auto mt-2" style="max-width: 500px;">
+
+                <!-- Header 6-->
+                <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center gap-2">
+                        <img src="https://i.pravatar.cc/40?img6" class="rounded-circle" alt="avatar" width="40" height="40">
+                        <strong><span class="username6">UserName</span>
+                        </strong>
+                    </div>
+
+                    <!-- Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-sm" data-bs-toggle="dropdown">
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Report</a></li>
+                            <li><a class="dropdown-item text-danger" href="#">Unfollow</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Image -->
+                <img src="https://picsum.photos/id/65/600/600" class="card-img-top" alt="image6">
+
+                <!-- Body -->
+                <div class="card-body">
+
+                    <!-- Actions -->
+                    <div class="d-flex justify-content-between mb-2">
+                        <div>
+                            <i class="fa-regular fa-heart fs-5 me-3"></i>
+                            <i class="fa-regular fa-comment fs-5"></i>
+                        </div>
+                        <i class="fa-regular fa-bookmark fs-5"></i>
+                    </div>
+
+                    <!-- Likes -->
+                    <p class="mb-1"><strong class="likes6">124 likes</strong></p>
+
+                    <!-- Caption -->
+                    <p class="mb-0">
+                        <strong><span class="username6">UserName</span>
+                        </strong>
+                        This is an Instagram-like caption using Bootstrap 5.
+                    </p>
+                </div>
+
+                <!-- Footer -->
+                <div class="card-footer bg-white border-0">
+                    <small class="text-muted"><span class="hours6"> 2</span> hours ago</small>
+                </div>
+
+            </div>
+
+                        <div class="card shadow-sm mx-auto mt-2" style="max-width: 500px;">
+
+                <!-- Header 7-->
+                <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center gap-2">
+                        <img src="https://i.pravatar.cc/40?img7" class="rounded-circle" alt="avatar" width="40" height="40">
+                        <strong><span class="username7">UserName</span>
+                        </strong>
+                    </div>
+
+                    <!-- Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-sm" data-bs-toggle="dropdown">
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Report</a></li>
+                            <li><a class="dropdown-item text-danger" href="#">Unfollow</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Image -->
+                <img src="https://picsum.photos/id/78/600/600" class="card-img-top" alt="image7">
+
+                <!-- Body -->
+                <div class="card-body">
+
+                    <!-- Actions -->
+                    <div class="d-flex justify-content-between mb-2">
+                        <div>
+                            <i class="fa-regular fa-heart fs-5 me-3"></i>
+                            <i class="fa-regular fa-comment fs-5"></i>
+                        </div>
+                        <i class="fa-regular fa-bookmark fs-5"></i>
+                    </div>
+
+                    <!-- Likes -->
+                    <p class="mb-1"><strong class="likes7">124 likes</strong></p>
+
+                    <!-- Caption -->
+                    <p class="mb-0">
+                        <strong><span class="username7">UserName</span>
+                        </strong>
+                        This is an Instagram-like caption using Bootstrap 5.
+                    </p>
+                </div>
+
+                <!-- Footer -->
+                <div class="card-footer bg-white border-0">
+                    <small class="text-muted"><span class="hours7">2 </span>hours ago</small>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Create a new post</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>Caption:</h6>
+                        <textarea class="form-control" placeholder="Add the caption of your post here"
+                            id="floatingTextarea2"></textarea>
+                        <div class="row p-2">
+                            <button class="col-1 border rounded p-1 m-1 btn-light">
+                                <i class="fa-solid fa-camera"></i>
+                            </button>
+                            <button class="col-1 border rounded p-1 m-1 btn-light">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success">Publish</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"></script>
+        <script src="app.js"></script>
+</body>
+
+</html>
