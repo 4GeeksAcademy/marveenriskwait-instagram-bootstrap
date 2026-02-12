@@ -79,18 +79,28 @@ const likesNames = ["likes1", "likes2", "likes3", "likes4", "likes5", "likes6", 
 function randomlikes(arr) {
   arr.forEach(className => {
     const likesrandom = Math.floor(Math.random() * 999) + 1;
+    const secondRandom = Math.floor(Math.random() * 3) + 1;
     const elements = document.getElementsByClassName(className);
+    
+    let units = ""
+    
+    if (secondRandom === 1){
+      units = "M"
+    } else if (secondRandom === 2){
+      units = "K"
+    } else {
+      units = ""
+    };
+    
+
 
     for (let el of elements) {
-      if (likesrandom < 1000) {
-        el.textContent = `${likesrandom} likes`;
-      } else {
-        el.textContent = `${likesrandom} likes`;
+        el.textContent = `${likesrandom +units} likes`;
       }
     }
-
-  });
+  );
 }
+
 
 
 
@@ -98,3 +108,21 @@ randomlikes(likesNames);
 
 
 
+// Random images
+
+const imageNames = ["image-1", "image-2", "image-3", "image-4", "image-5", "image-6", "image-7", "image-8", "image-9"]
+
+function randomImage(arr) {
+
+  arr.forEach(className => {
+    const imagerandom = Math.floor(Math.random() * 999) + 1;
+    const elements = document.getElementsByClassName(className);
+
+    for (let el of elements) {
+        el.src = `https://picsum.photos/id/${imagerandom}/600/600`;
+    }
+
+  });
+}
+randomImage(imageNames)
+//  <img src="https://picsum.photos/id/78/600/600" class="card-img-top" alt="image7"></img> 
