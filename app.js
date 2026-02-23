@@ -125,4 +125,3 @@ function randomImage(arr) {
   });
 }
 randomImage(imageNames)
-//  <img src="https://picsum.photos/id/78/600/600" class="card-img-top" alt="image7"></img> 
